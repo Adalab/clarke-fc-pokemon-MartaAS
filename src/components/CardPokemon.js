@@ -5,13 +5,15 @@ export default class CardPokemon extends React.Component {
         this.props.observer.observe(this.image)
     }
   render(){
+    let types = this.props.types;
+    types = types.join(' - ');
+
     return(
-      // <div className="">
-      //   //su foto, nombre, número y tipo (o tipos)
-      //     <h2>{this.props.namePokemon}</h2>
-      // </div>
       <li className="">
+        <p>{this.props.name}</p>
         <img data-src={this.props.sprite} ref={node => { this.image = node }} width={96} height={96} />
+        <span>{this.props.number}</span>
+        <p>{types}</p>
       </li>
     )
   }

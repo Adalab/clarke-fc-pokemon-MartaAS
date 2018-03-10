@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import CardPokemon from './CardPokemon';
 import PokemonList from './PokemonList';
 import lazyLoadImage, { config } from './lazyLoadImage';
-import fetchPokemons from './fetchPokemons';
-
-//const url = 'https://pokeapi.co/api/v2/pokemon/?limit=25'
-
-  //const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 
 export default class App extends React.Component {
   constructor(props){
@@ -18,33 +13,36 @@ export default class App extends React.Component {
     }
   }
 
-    observer = new window.IntersectionObserver(lazyLoadImage, config)
+  observer = new window.IntersectionObserver(lazyLoadImage, config)
 
-  async componentDidMount () {
-    const pokemons = await fetchPokemons()
-    this.setState({ arrayPokemons : pokemons})
+  //recorremos array y parsear a json
+    async componentDidMount () {
+
+    for (let i = 1; i <= 25; i++) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+      .then(response => response.json())
+
+      .then(json => {
+        this.setState({
+          arrayPokemons: this.state.arrayPokemons.concat([json])
+        })
+      })
+    }
   }
-  // componentDidMount(){
-  //   fetch('https://pokeapi.co/api/v2/pokemon/1/')
-  //   .then(response => response.json())
-  //   .then(json =>{
-  //     this.setState({
-  //       arrayPokemons: json
-  //     });
-  //   })
-  // }
 
-  //hacemos filtro y pintamos
   drawPokemons(){
     let allPokemons = this.state.arrayPokemons;
-    //let allPokemonss = allPokemons.results;
+    allPokemons = allPokemons.filter(element => element.name.toLowerCase().includes(this.state.filterName.toLowerCase())
+    );
+    /* después de filtrar el array, lo ordenamos */
+    allPokemons = allPokemons.sort(function (a, b){
+      return a.id - b.id;
+    })
 
-      //allPokemons = allPokemons.filter(element => element.name.toLowerCase().includes(this.state.filterName.toLowerCase())
-    //);
 
     return(
       <section className="container">
-        <div className="">{allPokemons.length}</div>
+         <div className="">{allPokemons.length}</div>
         <PokemonList poke={allPokemons} observer={this.observer} />
       </section>
     );
@@ -62,7 +60,7 @@ export default class App extends React.Component {
     return (
       <div className="">
         <header className="header">
-          <h1 className="">pokemons</h1>
+          <h1 className="">Pokémon</h1>
         </header>
         <div>
           <input className="" type="text" placeholder="Encuentra a tu pokemon favorito" onChange={this.handleClick}>

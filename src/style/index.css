@@ -1,7 +1,18 @@
+@font-face {
+font-family: 'font-white';
+src: url('../fonts/Pokemon-Hollow.ttf');
+}
+
+@font-face {
+font-family: 'font-solid';
+src: url('../fonts/Pokemon-Solid.ttf');
+}
+
+
 body {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: font-solid;
 	text-align: center;
 }
 .header{
