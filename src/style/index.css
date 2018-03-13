@@ -21,3 +21,37 @@ body {
 	height: 150px;
 	background-color: red;
 }
+ul{
+  list-style:none;
+}
+.cardPoke{
+	border-radius: 20px;
+}
+.infoName{
+	text-transform: capitalize;
+}
+.infoType{
+}
+
+@media all and (min-width: 500px){
+	.containerPoke{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 10px;
+  	grid-row-gap: 10px;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+}
+@media all and (min-width: 768px){
+	.containerPoke{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media all and (min-width: 1024px){
+	.containerPoke{
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+	}
+}

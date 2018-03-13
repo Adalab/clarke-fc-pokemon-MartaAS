@@ -60,7 +60,7 @@ export default class App extends React.Component {
     return (
       <div className="">
         <header className="header">
-          <h1 className="">Pokémon</h1>
+          <h1 className="">Pokédex</h1>
         </header>
         <div>
           <input className="" type="text" placeholder="Encuentra a tu pokemon favorito" onChange={this.handleClick}>

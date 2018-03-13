@@ -6,7 +6,7 @@ export default class PokemonList extends React.Component {
 
 //console.log(this.props.poke)
     return(
-      <ul className="">
+      <ul className="containerPoke">
         {
           this.props.poke.map(({ id, sprites,name, types}) =>
             <CardPokemon key={id} number={id} sprite={sprites.front_default} name={name} observer={this.props.observer}

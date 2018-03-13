@@ -9,11 +9,11 @@ export default class CardPokemon extends React.Component {
     types = types.join(' - ');
 
     return(
-      <li className="">
-        <p>{this.props.name}</p>
+      <li className="cardPoke">
+      <p className="infoName">{this.props.name}</p>
         <img data-src={this.props.sprite} ref={node => { this.image = node }} width={96} height={96} />
-        <span>{this.props.number}</span>
-        <p>{types}</p>
+        <span># {this.props.number}</span>
+        <p className="infoType">{types}</p>
       </li>
     )
   }
