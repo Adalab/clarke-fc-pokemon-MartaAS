@@ -33,6 +33,45 @@ ul{
 .infoType{
 }
 
+.type {
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.type--container {
+	text-align: center;
+	border-radius: 7px;
+}
+.types--grass {
+	background-color: grey;
+}
+.types--fire {
+	background-color: red;
+}
+.types--poison {
+	background-color: purple;
+}
+.types--electric {
+	background-color: yellow;
+}
+
+.types--normal {
+	background-color: orange;
+}
+.types--bug {
+	background-color: pink;
+}
+.types--water {
+	background-color: blue;
+}
+.types--flying {
+	background-color: green;
+}
+
+
+
 @media all and (min-width: 500px){
 	.containerPoke{
 		display: grid;
@@ -52,6 +91,6 @@ ul{
 @media all and (min-width: 1024px){
 	.containerPoke{
 		display: grid;
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 	}
 }

@@ -9,6 +9,7 @@ export default class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       arrayPokemons: [],
+      arrayEvolutions: [],
       filterName: ''
     }
   }
@@ -18,7 +19,7 @@ export default class App extends React.Component {
   //recorremos array y parsear a json
     async componentDidMount () {
 
-    for (let i = 1; i <= 25; i++) {
+    for (let i = 3; i <= 6; i++) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
       .then(response => response.json())
 
@@ -27,11 +28,26 @@ export default class App extends React.Component {
           arrayPokemons: this.state.arrayPokemons.concat([json])
         })
       })
+
     }
+    for (let i = 3; i <= 6; i++) {
+
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
+    .then(response => response.json())
+
+    .then(json => {
+      this.setState({
+        arrayEvolutions: this.state.arrayEvolutions.concat([json])
+      })
+    })
+  }
+
   }
 
   drawPokemons(){
     let allPokemons = this.state.arrayPokemons;
+    let allEvolutions = this.state.arrayEvolutions;
+
     allPokemons = allPokemons.filter(element => element.name.toLowerCase().includes(this.state.filterName.toLowerCase())
     );
     /* después de filtrar el array, lo ordenamos */
@@ -39,11 +55,10 @@ export default class App extends React.Component {
       return a.id - b.id;
     })
 
-
     return(
       <section className="container">
          <div className="">{allPokemons.length}</div>
-        <PokemonList poke={allPokemons} observer={this.observer} />
+        <PokemonList poke={allPokemons} observer={this.observer} evolutions={allEvolutions} />
       </section>
     );
   }
