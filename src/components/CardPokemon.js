@@ -18,21 +18,21 @@ export default class CardPokemon extends React.Component {
       if(valor2.length > 0)
       {
         if(valor2[0].evolves_from_species != null)
-          nombre = valor2[0].evolves_from_species.name;
+          nombre = 'Evolution from: ' + valor2[0].evolves_from_species.name;
       }
 
     }
 
     return(
       <li className="cardPoke">
-      <span># {this.props.number}</span>
-        <img data-src={this.props.sprite} ref={node => { this.image = node }} width={96} height={96} />
+      <span className="id_poke"># {this.props.number}</span>
+        <img className="img--poke" data-src={this.props.sprite} ref={node => { this.image = node }} width={150} height={150} />
         <p className="infoName">{this.props.name}</p>
         <div className="pokemon__type">
 					{this.props.types.map((types) =>
-						<span className={`type--container types--${types}`}> {types} </span>)}
+						<div className={`type--container types--${types}`}> </div>)}
 				</div>
-        <span>{nombre}</span>
+        <span className="evolutionFrom">{nombre}</span>
       </li>
     )
   }

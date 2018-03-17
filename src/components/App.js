@@ -19,7 +19,7 @@ export default class App extends React.Component {
   //recorremos array y parsear a json
     async componentDidMount () {
 
-    for (let i = 3; i <= 6; i++) {
+    for (let i = 1; i <= 25; i++) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
       .then(response => response.json())
 
@@ -30,7 +30,7 @@ export default class App extends React.Component {
       })
 
     }
-    for (let i = 3; i <= 6; i++) {
+    for (let i = 1; i <= 25; i++) {
 
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
     .then(response => response.json())
@@ -55,9 +55,10 @@ export default class App extends React.Component {
       return a.id - b.id;
     })
 
+
+    ///*<div className="">{allPokemons.length}</div>*/
     return(
       <section className="container">
-         <div className="">{allPokemons.length}</div>
         <PokemonList poke={allPokemons} observer={this.observer} evolutions={allEvolutions} />
       </section>
     );
@@ -75,10 +76,10 @@ export default class App extends React.Component {
     return (
       <div className="">
         <header className="header">
-          <h1 className="">Pokédex</h1>
+          <h1 className="title_header">Pokédex</h1>
         </header>
         <div>
-          <input className="" type="text" placeholder="Encuentra a tu pokemon favorito" onChange={this.handleClick}>
+          <input className="input" type="text" placeholder="Encuentra a tu pokemon favorito" onChange={this.handleClick}>
           </input>
         </div>
           {this.drawPokemons()}
