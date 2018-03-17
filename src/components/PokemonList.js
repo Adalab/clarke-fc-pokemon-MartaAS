@@ -10,8 +10,8 @@ export default class PokemonList extends React.Component {
     return(
       <ul className="containerPoke">
         {
-          this.props.poke.map(({ id, sprites,name, types}) =>
-            <CardPokemon evolution={allEvolutions.filter(p => p.name.toLowerCase(name.toLowerCase()))}  key={id} number={id} sprite={sprites.front_default} name={name} observer={this.props.observer}
+          this.props.poke.map(({ id, sprites, name, types, height, weight}) =>
+            <CardPokemon evolution={allEvolutions.filter(p => p.name.toLowerCase(name.toLowerCase()))}  key={id} number={id} sprite={sprites.front_default} name={name} height={height} weight={weight} observer={this.props.observer}
             types= {types.sort((typeNumber) => typeNumber.slot).map((typeNumber) => typeNumber.type.name)} />
           )
         }

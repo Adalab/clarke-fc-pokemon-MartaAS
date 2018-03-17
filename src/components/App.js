@@ -30,7 +30,7 @@ export default class App extends React.Component {
       })
 
     }
-    for (let i = 1; i <= 25; i++) {
+    for (let i = 1; i <= 5; i++) {
 
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
     .then(response => response.json())

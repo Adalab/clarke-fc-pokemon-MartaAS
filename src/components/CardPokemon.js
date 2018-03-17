@@ -25,7 +25,7 @@ export default class CardPokemon extends React.Component {
 
     return(
       <li className="cardPoke">
-      <span className="id_poke"># {this.props.number}</span>
+      <span className="id_poke">#{this.props.number}</span>
         <img className="img--poke" data-src={this.props.sprite} ref={node => { this.image = node }} width={150} height={150} />
         <p className="infoName">{this.props.name}</p>
         <div className="pokemon__type">
@@ -33,6 +33,8 @@ export default class CardPokemon extends React.Component {
 						<div className={`type--container types--${types}`}> </div>)}
 				</div>
         <span className="evolutionFrom">{nombre}</span>
+        <p>height: {this.props.height}</p>
+        <p>weight: {this.props.weight} lbs</p>
       </li>
     )
   }
