@@ -37,7 +37,7 @@ export default class CardPokemon extends React.Component {
         <p className="infoName">{this.props.name}</p>
         <div className="pokemon__type">
 					{this.props.types.map((types) =>
-						<div className={`type--container types--${types}`}> </div>)}
+						<div className={`type--container types--${types}`} title={types}> </div>)}
 				</div>
         <span className="evolutionFrom">{nameEvolution}</span>
         <p>height: {this.props.height}</p>
