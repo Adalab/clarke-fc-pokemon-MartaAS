@@ -7,18 +7,25 @@ export default class CardPokemon extends React.Component {
   render(){
     let types = this.props.types;
     types = types.join(' - ');
-    let valor = this.props.evolution;
-    let nombre2 = this.props.name;
-    let valor2 = '';
-    let nombre = '';
-    //valor.filter(p => p.name.toLowerCase().includes(this.props.name.toLowerCase()));
-    if(valor.length > 0)
+    //evolucion de cada pokemon array evoluciones
+    let infoEvolution = this.props.evolution;
+    //nombre pokemon array pokemon
+    let pokeName = this.props.name;
+    //sera el pokemon que vamos a mostrar evoluciones
+    let evolutionPokemon = '';
+    //nombre de la evolucion
+    let nameEvolution = '';
+
+    //compruebo que no es un campo vacio, filtramos el array de evoluciones para asegurar que nos devuleve la info de la evolucion
+    //del pokemon que mostramos, una vez que tengo la info de la evolucion del pokemon compruebo que no sea null, en este caso
+    //accedo al nombre de la evolucion
+    if(infoEvolution.length > 0)
     {
-      valor2 = valor.filter(p => p.name.toLowerCase().includes(nombre2.toLowerCase()));
-      if(valor2.length > 0)
+      evolutionPokemon = infoEvolution.filter(p => p.name.toLowerCase().includes(pokeName.toLowerCase()));
+      if(evolutionPokemon.length > 0)
       {
-        if(valor2[0].evolves_from_species != null)
-          nombre = 'Evolution from: ' + valor2[0].evolves_from_species.name;
+        if(evolutionPokemon[0].evolves_from_species != null)
+          nameEvolution = 'Evolution from: ' + evolutionPokemon[0].evolves_from_species.name;
       }
 
     }
@@ -32,7 +39,7 @@ export default class CardPokemon extends React.Component {
 					{this.props.types.map((types) =>
 						<div className={`type--container types--${types}`}> </div>)}
 				</div>
-        <span className="evolutionFrom">{nombre}</span>
+        <span className="evolutionFrom">{nameEvolution}</span>
         <p>height: {this.props.height}</p>
         <p>weight: {this.props.weight} lbs</p>
       </li>
