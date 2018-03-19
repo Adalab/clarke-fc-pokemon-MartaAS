@@ -1,16 +1,16 @@
 @font-face {
-font-family: 'font-white';
-src: url('../fonts/Pokemon-Hollow.ttf');
+	font-family: 'font-white';
+	src: url('../fonts/Pokemon-Hollow.ttf');
 }
 
 @font-face {
-font-family: 'font-solid';
-src: url('../fonts/Pokemon-Solid.ttf');
+	font-family: 'font-solid';
+	src: url('../fonts/Pokemon-Solid.ttf');
 
 }
 @font-face {
-font-family: 'font-gameboy';
-src: url('../fonts/Pokemon_GB.ttf');
+	font-family: 'font-gameboy';
+	src: url('../fonts/Pokemon_GB.ttf');
 }
 
 body {
@@ -26,51 +26,56 @@ body {
 	padding: 0;
 	margin: 0;
 	height: 150px;
-	background-image: url("../images/header.png");
-	background-color: rgba(0,0,0,0.8);
+	/* background-image: url("../images/poke4.jfif");
+	background-repeat: no-repeat;
+	background-size: cover; */
+	/* background-color: #024; */
+	background: linear-gradient(to top right,#024,#402);
 }
 .title_header{
 	padding-top: 60px;
 	font-size: 40px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffdd56;
 
 }
 .input{
 	width: 300px;
-margin-top: 30px;
-border-left-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-top-style: none;
-    border-bottom-color: black;
-    border-bottom-style: inset;
-    border-bottom-width: 3px;
-height: 25px;
-text-align: center;
-background: none;
+	margin-top: 30px;
+	border-left-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom-color: black;
+	border-bottom-style: inset;
+	border-bottom-width: 3px;
+	height: 25px;
+	text-align: center;
+	background: none;
+	color: #ffdd56;
 }
 ul{
-  list-style:none;
+	list-style:none;
 }
 .containerPoke{
 	padding-left: 10px;
-padding-right: 10px;
-    padding-top: 20px;
+	padding-right: 10px;
+	padding-top: 20px;
 }
 .cardPoke{
 	border-radius: 20px;
-  border: 1px solid #ffdd56;
-  margin-bottom: 2.5rem;
-  background: none;
+	border: 1px solid #ffdd56;
+	margin-bottom: 2.5rem;
+	background: none;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	padding-top: 20px;
-padding-bottom: 30px;
-padding-left: 7px;
-padding-right: 7px;
-  transition: transform 1s;
+	padding-bottom: 30px;
+	padding-left: 7px;
+	padding-right: 7px;
+	transition: transform 1s;
 	opacity: 0.5;
 }
 .cardPoke:hover {
@@ -82,12 +87,19 @@ padding-right: 7px;
 }
 .id_poke{
 	justify-content: flex-end;
-display: flex;
-padding-right: 20px;
-font-size: 23px;
+	display: flex;
+	padding-right: 20px;
+	font-size: 23px;
 }
 .img--poke{
-margin-left: 90px;
+	margin-left: 90px;
+}
+.img--poke:hover{
+-webkit-transform:scale(1.5);
+-moz-transform:scale(1.5);
+-ms-transform:scale(1.5);
+-o-transform:scale(1.5);
+transform:scale(1.5);
 }
 .type {
 	font-size: 14px;
@@ -106,7 +118,7 @@ margin-left: 90px;
 	text-align: center;
 	border-radius: 7px;
 	width: 70px;
-    height: 60px;
+	height: 60px;
 }
 .types--grass {
 	background-image: url("../images/icon-grass.png");
@@ -151,7 +163,7 @@ margin-left: 90px;
 }
 .evolutionFrom{
 	text-transform: capitalize;
-	    line-height: 27px;
+	line-height: 27px;
 }
 
 
@@ -160,12 +172,15 @@ margin-left: 90px;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-column-gap: 10px;
-  	grid-row-gap: 10px;
+		grid-row-gap: 10px;
 		padding-right: 10px;
 		padding-left: 10px;
 	}
 	.input{
 		width: 400px;
+	}
+	.title_header{
+		font-size: 50px;
 	}
 }
 @media all and (min-width: 768px){
@@ -175,6 +190,9 @@ margin-left: 90px;
 	}
 	.input{
 		width: 500px;
+	}
+	.title_header{
+		font-size: 70px;
 	}
 }
 @media all and (min-width: 1024px){
